@@ -36,8 +36,8 @@ public class LevelController : BaseGameObject
 		EventManager.OnActionSend(EventManager.SceneComplete, null, null);
 
 		// Инициализация окружения
-		GM.GameData.LevelData.SetCoins(0);
-		GM.GameData.PlayerData.SetCurrentLevel(currentLevel);	
+		GM.GameData.LevelData.Score(0, isSet:true);
+		GM.GameData.PlayerData.CurrentLevel = currentLevel;	
 		GM.GameData.LevelData.PriorityNextScene = priorityNextScene;
 		J.gameObject.SetActive(false);
 		Player.Init();
@@ -112,10 +112,10 @@ public class LevelController : BaseGameObject
 	{
 		isActive = false;
 
-		int coins = Random.Range(1, 11);
-		GM.GameData.PlayerData.ModifyCoins(coins);
-		GM.GameData.LevelData.ModifyCoins(coins);	
-		GM.GameData.HighScoresData.AddScore((int)GM.GameData.PlayerData.GetCoins());
+		int rndScore = Random.Range(1, 11);
+		GM.GameData.PlayerData.Score(+rndScore);
+		GM.GameData.LevelData.Score(+rndScore);	
+		GM.GameData.HighScoresData.AddScore((int)GM.GameData.PlayerData.Score());
 
 		//AppAnalytics.AccrualOfMoney(currentLevel, (int)GM.GameData.LevelData.GetLevelCoins());
 		//AppAnalytics.TrackLevelComplete(currentLevel);
@@ -138,10 +138,10 @@ public class LevelController : BaseGameObject
 	{
 		isActive = false;
 
-		int coins = Random.Range(1, 11);
-		GM.GameData.PlayerData.ModifyCoins(coins);
-		GM.GameData.LevelData.ModifyCoins(coins);
-		GM.GameData.HighScoresData.AddScore((int)GM.GameData.PlayerData.GetCoins());
+		int rndScore = Random.Range(1, 11);
+		GM.GameData.PlayerData.Score(+rndScore);
+		GM.GameData.LevelData.Score(+rndScore);
+		GM.GameData.HighScoresData.AddScore((int)GM.GameData.PlayerData.Score());
 
 		//AppAnalytics.AccrualOfMoney(currentLevel, (int)GM.GameData.LevelData.GetLevelCoins());
 		//AppAnalytics.TrackLevelFail(currentLevel, "failed reason");

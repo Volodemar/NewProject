@@ -6,80 +6,62 @@ using UnityEngine;
 
 public class LevelData
 {
-	private float Coins					= 0f;
-	private float Money					= 0f;
-	private float Crystal				= 0f;
+	private float _score				= 0f;
+	private float _coins				= 0f;
+	private float _money				= 0f;
+	private float _crystal				= 0f;
 
 	public string PriorityNextScene		= "";
 	
 	/// <summary>
 	/// Инициализация новой игры
 	/// </summary>
-    public void NewGameLevelData()
+    public void Init()
 	{
-		Coins				= 0f;
-		Money				= 0f;
-		Crystal				= 0f;
+		_score				= 0f;
+		_coins				= 0f;
+		_money				= 0f;
+		_crystal			= 0f;
 		PriorityNextScene	= "";
 	}
 
-	public float GetCoins()
+	public float Score(float value = 0, bool isSet = false)
 	{
-		return Coins;
+		if(isSet)
+			return _score = value;
+		else if(value == 0)
+			return _score;
+		else
+			return _score = _score + value > 0 ? _score + value : 0; 
 	}
 
-	public float GetMoney()
+	public float Coins(float value = 0, bool isSet = false)
 	{
-		return Money;
+		if(isSet)
+			return _coins = value;
+		else if(value == 0)
+			return _coins;
+		else
+			return _coins = _coins + value > 0 ? _coins + value : 0; 
 	}
 
-	public float GetCrystal()
+	public float Money(float value = 0, bool isSet = false)
 	{
-		return Crystal;
+		if(isSet)
+			return _money = value;
+		else if(value == 0)
+			return _money;
+		else
+			return _money = _money + value > 0 ? _money + value : 0; 
 	}
 
-	public void ModifyCoins(float value)
+	public float Crystal(float value = 0, bool isSet = false)
 	{
-		float newValue = Coins + value;
-
-		if(newValue < 0)
-			newValue = 0;
-
-		Coins = newValue;
-	}
-
-	public void ModifyMoney(float value)
-	{
-		float newValue = Money + value;
-
-		if(newValue < 0)
-			newValue = 0;
-
-		Money = newValue;
-	}
-
-	public void ModifyCrystal(float value)
-	{
-		float newValue = Crystal + value;
-
-		if(newValue < 0)
-			newValue = 0;
-
-		Crystal = newValue;
-	}
-
-	public void SetCoins(float value)
-	{
-		Coins = value;
-	}
-
-	public void SetMoney(float value)
-	{
-		Money = value;
-	}
-
-	public void SetCrystal(float value)
-	{
-		Crystal = value;
+		if(isSet)
+			return _crystal = value;
+		else if(value == 0)
+			return _crystal;
+		else
+			return _crystal = _crystal + value > 0 ? _crystal + value : 0; 
 	}
 }

@@ -2,64 +2,21 @@
 
 public static class EventManager
 {
-	/// <summary>
-	/// Основные объекты проинициализированы, инициализация уровня еще не завершена
-	/// </summary>
-	public const string SceneComplete = "SceneComplete";
+	public static int SceneComplete		=> 0;
 
-	/// <summary>
-	/// Инициализация уровня завершена
-	/// </summary>
-	public const string LevelInit = "LevelInit";
+	public static int LevelInit			=> 1;
+	public static int LevelStart		=> 2;
+	public static int LevelFailed		=> 3;
+	public static int LevelWin			=> 4;
 
-	/// <summary>
-	/// Инициализация уровня завершена
-	/// </summary>
-	public const string LevelStart = "LevelStart";
+	public static int ChangeScore		=> 5;
+	public static int ChangedCoins		=> 6;
+	public static int ChangedMoney		=> 7;
+	public static int ChangedCrystal	=> 8;
 
-	/// <summary>
-	/// Изменено количество монет
-	/// </summary>
-	public const string ChangedCoins = "ChangedCoins";
+	public static Action<int, object, object> OnAction;
 
-	/// <summary>
-	/// Изменено количество денег
-	/// </summary>
-	public const string ChangedMoney = "ChangedMoney";
-
-	/// <summary>
-	/// Изменено количество кристаллов
-	/// </summary>
-	public const string ChangedCrystal = "ChangedCrystal";
-
-	/// <summary>
-	/// Проигрыш уровня
-	/// </summary>
-	public const string LevelFailed = "LevelFailed";
-
-	/// <summary>
-	/// Пройден уровень
-	/// </summary>
-	public const string LevelWin = "LevelWin";
-
-	/// <summary>
-	/// Куплен апгрейд 1
-	/// </summary>
-	public const string ChangedUpgrade1 = "ChangedUpgrade1";
-
-	/// <summary>
-	/// Куплен апгрейд 2
-	/// </summary>
-	public const string ChangedUpgrade2 = "ChangedUpgrade2";
-
-	/// <summary>
-	/// Куплен апгрейд 3
-	/// </summary>
-	public const string ChangedUpgrade3 = "ChangedUpgrade3";
-
-	public static Action<string, object, object> OnAction;
-
-	public static void OnActionSend(string ID, object obj, object obj2)
+	public static void OnActionSend(int ID, object obj, object obj2)
 	{
 		OnAction?.Invoke(ID, obj, obj2);
 	}

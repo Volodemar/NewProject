@@ -31,8 +31,8 @@ public class Loading : MonoBehaviour
 		//Добавление неудаляемого объекта в ссылки
 		ObjectExtension.DontDestroyOnLoad(DontDestroyGameData); 
 
-		int currentLevel	= GD.PlayerData.GetCurrentLevel();
-		int lastLevel		= GD.PlayerData.GetLastFinishedLevel();
+		int currentLevel	= GD.PlayerData.CurrentLevel;
+		int lastLevel		= GD.PlayerData.LastLevel;
 		//AppAnalytics.Init(currentLevel, lastLevel);
 
 		if(LoadingData.isLoadART)
@@ -47,7 +47,7 @@ public class Loading : MonoBehaviour
 			SceneManager.LoadScene(LoadingData.NameCPILevel);
 		else
 		{ 
-			int level = GD.PlayerData.GetCurrentLevel();
+			int level = GD.PlayerData.CurrentLevel;
 			if(level == 0 || level >= LoadingData.MaxLevels)
 				SceneManager.LoadScene("Level1");
 			else

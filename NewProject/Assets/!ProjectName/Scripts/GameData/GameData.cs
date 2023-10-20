@@ -30,8 +30,8 @@ public class GameData
 
 	public void NewGame(NameGenerator generator)
 	{
-		PlayerData.NewGamePlayerData();
-		LevelData.NewGameLevelData();
+		PlayerData.Init();
+		LevelData.Init();
 		HighScoresData.Generate(generator);
 
 		Save();
@@ -39,9 +39,9 @@ public class GameData
 
 	public void NewCPIGame(NameGenerator generator, int coins = 0)
 	{
-		PlayerData.NewGamePlayerData();
-		LevelData.NewGameLevelData();
-		PlayerData.SetCoins(coins);
+		PlayerData.Init();
+		LevelData.Init();
+		PlayerData.Coins(coins,isSet: true);
 		HighScoresData.Generate(generator);
 		Save();
 	}

@@ -23,7 +23,7 @@ public class UIHighScoresTable : BaseGameObject
 	{
         if(InitScene())
 		{
-            float coins = GM.GameData.PlayerData.GetCoins();
+            float coins = GM.GameData.PlayerData.Score();
             List<HighScoresItem> itemsAll = GM.GameData.HighScoresData.items.OrderBy(p => p.id).ToList();
 
             HighScoresItem top1Data = itemsAll[0];

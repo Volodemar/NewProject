@@ -20,15 +20,11 @@ public class BaseGameObject : MonoBehaviour
 	/// Example
 	/// </summary>
 	/*
-	public override void GetAction(string ID, object obj, object obj2)
-	{
-		switch (ID)
+		public override void GetAction(int ID, object obj, object obj2)
 		{
-			case EventManager.LevelInit:
+			if(ID == EventManager.LevelInit)
 				InitScene();
-				break;
 		}
-	}
 	*/
 
 	/// <summary>
@@ -115,14 +111,10 @@ public class BaseGameObject : MonoBehaviour
 		/// Слушаем события
 		/// </summary>
 		/// <param name="ID">Идентификатор события</param>
-		public virtual void GetAction(string ID, object obj, object obj2)
+		public virtual void GetAction(int ID, object obj, object obj2)
 		{
-			switch (ID)
-			{
-				case EventManager.LevelInit:
-					InitScene();
-					break;
-			}
+			if(ID == EventManager.LevelInit)
+				InitScene();
 		}
 	#endregion
 }

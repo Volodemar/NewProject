@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
 
     public void OnStartNextLevel()
 	{
-		int currentLevel = GameData.PlayerData.GetCurrentLevel();
+		int currentLevel = GameData.PlayerData.CurrentLevel;
 		string priorityNextScene = GameData.LevelData.PriorityNextScene;
 
 		StopAllCoroutines();
