@@ -16,8 +16,6 @@ public class ClickManager : BaseGameObject
 
 	private void Update () 
 	{
-		if(InitScene())
-		{ 
 		#if UNITY_ANDROID || UNITY_IOS
 			Touch[] touches = Input.touches;
 
@@ -70,7 +68,6 @@ public class ClickManager : BaseGameObject
 					HandleTouchUp(Input.mousePosition);
 			}
 		#endif
-		}
 	}
 
     public void HandleTouchDown(Vector3 position)

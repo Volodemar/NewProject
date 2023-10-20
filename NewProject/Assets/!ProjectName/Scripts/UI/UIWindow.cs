@@ -11,9 +11,6 @@ public class UIWindow : BaseGameObject
 
     public virtual void Open() 
     {
-        if(!InitScene())
-            return;
-
         if(IsOnPausedGame)
             StatusManager.SetGameStatus(GameStatus.Paused);
         if(IsOnPlayGame)
@@ -25,9 +22,6 @@ public class UIWindow : BaseGameObject
 
     public virtual void Close() 
     {
-        if(!InitScene())
-            return;
-
         if(IsNotClosed)
             return;
 

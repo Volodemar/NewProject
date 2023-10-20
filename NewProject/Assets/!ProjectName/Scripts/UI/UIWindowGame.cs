@@ -8,6 +8,5 @@ public class UIWindowGame : UIWindow
 {
 	private void Start()
 	{
-		InitScene();
 	}
 }

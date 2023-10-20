@@ -6,9 +6,6 @@ public class UIButtonRestart : BaseGameObject
 {
 	public void OnRestartLevel()
 	{
-		if(InitScene())
-		{ 
-			GM.OnRestartLevel();
-		}
+		GM.OnRestartLevel();
 	}
 }

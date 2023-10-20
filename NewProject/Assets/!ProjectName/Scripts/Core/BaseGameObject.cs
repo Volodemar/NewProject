@@ -5,94 +5,153 @@
 /// </summary>
 public class BaseGameObject : MonoBehaviour
 {
-	[HideInInspector] public GameManager GM;
-	[HideInInspector] public Joystick J;
-	[HideInInspector] public PlayerController Player;
-	[HideInInspector] public LevelController Level;
-	[HideInInspector] public UIManager UI;
-	[HideInInspector] public CameraController Camera;
+	[SerializeField] private bool  isEventCheck = false;
 
-	[HideInInspector] public bool  isEventCheck = false;
-
-	private bool isObjectInit = false;
-
-	/// <summary>
-	/// Example
-	/// </summary>
-	/*
-		public override void GetAction(int ID, object obj, object obj2)
+	#region Ленивая инициализация свойств
+		private GameManager _gm;
+		private bool _isGM_Init;
+		public GameManager GM 
 		{
-			if(ID == EventManager.LevelInit)
-				InitScene();
-		}
-	*/
-
-	/// <summary>
-	/// Проверяет полностью доступны объекты в сцене или еще грузится
-	/// </summary>
-	public bool InitScene()
-	{
-		if(!isObjectInit)
-		{
-			bool testIsObjectInit = true;
-
-			if(!GameManager.Instance)
-			{ 
-				testIsObjectInit = false;
-			}
-			else
-				GM = GameManager.Instance;
-
-			if (!PlayerController.Instance)
-			{ 
-				testIsObjectInit = false;
-			}
-			else
-				Player = PlayerController.Instance;
-
-			if (!LevelController.Instance)
-			{ 
-				testIsObjectInit = false;
-			}
-			else
-				Level = LevelController.Instance;
-
-			if(!UIManager.Instance)
-			{ 
-				testIsObjectInit = false;
-			}
-			else
-				UI = UIManager.Instance;
-
-			if (UI == null || UI.Joystick == null)
+			get
 			{
-				testIsObjectInit = false;
-			}
-			else
-				J = UI.Joystick;
+				if (!_isGM_Init)
+				{
+					if (!GameManager.Instance)
+					{
+						_gm = FindObjectOfType<GameManager>();
+					}
+					else
+					{
+						_gm = GameManager.Instance;
+					}
 
-			if(!CameraController.Instance)
-			{ 
-				testIsObjectInit = false;
+					_isGM_Init = true;
+				}
+				return _gm;
 			}
-			else
-				Camera = CameraController.Instance;
-
-			isObjectInit = testIsObjectInit;
 		}
 
-		return isObjectInit;
-	}
+		private PlayerController _player;
+		private bool _isPlayer_Init;
+		public PlayerController Player 
+		{
+			get
+			{
+				if (!_isPlayer_Init)
+				{
+					if (!PlayerController.Instance)
+					{
+						_player = FindObjectOfType<PlayerController>();
+					}
+					else
+					{
+						_player = PlayerController.Instance;
+					}
+
+					_isPlayer_Init = true;
+				}
+				return _player;
+			}
+		}
+
+		private LevelController _level;
+		private bool _isLevel_Init;
+		public LevelController Level 
+		{
+			get
+			{
+				if (!_isLevel_Init)
+				{
+					if (!LevelController.Instance)
+					{
+						_level = FindObjectOfType<LevelController>();
+					}
+					else
+					{
+						_level = LevelController.Instance;
+					}
+
+					_isLevel_Init = true;
+				}
+				return _level;
+			}
+		}
+
+		private UIManager _ui;
+		private bool _isUI_Init;
+		public UIManager UI 
+		{
+			get
+			{
+				if (!_isUI_Init)
+				{
+					if (!UIManager.Instance)
+					{
+						_ui = FindObjectOfType<UIManager>();
+					}
+					else
+					{
+						_ui = UIManager.Instance;
+					}
+
+					_isUI_Init = true;
+				}
+				return _ui;
+			}
+		}
+
+		private Joystick _j;
+		private bool _isJoystic_Init;
+		public Joystick J 
+		{
+			get
+			{
+				if (!_isJoystic_Init)
+				{
+					if (UI.Joystick == null)
+					{
+						_j = FindObjectOfType<Joystick>();
+					}
+					else
+					{
+						_j = UI.Joystick;
+					}
+
+					_isJoystic_Init = true;
+				}
+				return _j;
+			}
+		}
+
+		private CameraController _camera;
+		private bool _isCamera_Init;
+		public CameraController Camera 
+		{
+			get
+			{
+				if (!_isCamera_Init)
+				{
+					if (!CameraController.Instance)
+					{
+						_camera = FindObjectOfType<CameraController>();
+					}
+					else
+					{
+						_camera = CameraController.Instance;
+					}
+
+					_isCamera_Init = true;
+				}
+				return _camera;
+			}
+		}
+	#endregion Ленивая инициализация свойств
 
 	#region Подписка на обработку событий
 		public virtual void OnEnable()
 		{
-			InitScene();
-
 			if(isEventCheck)
-			{ 	
-				EventManager.OnAction += GetAction;				
-			}
+				EventManager.OnAction += GetAction;					
 		}
 
 		public virtual void OnDisable()
@@ -113,8 +172,8 @@ public class BaseGameObject : MonoBehaviour
 		/// <param name="ID">Идентификатор события</param>
 		public virtual void GetAction(int ID, object obj, object obj2)
 		{
-			if(ID == EventManager.LevelInit)
-				InitScene();
+			//if(ID == EventManager.LevelInit)
+				//Debug.Log("Инициализация сцены")
 		}
 	#endregion
 }

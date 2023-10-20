@@ -22,7 +22,7 @@ public class LevelController : BaseGameObject
 
 	private void Start()
 	{
-		Application.targetFrameRate = 30;
+		//Application.targetFrameRate = 30;
 		StartCoroutine(OnLevelInit());
 	}
 
@@ -31,8 +31,6 @@ public class LevelController : BaseGameObject
 	/// </summary>
 	private IEnumerator OnLevelInit()
 	{
-		InitScene();
-
 		EventManager.OnActionSend(EventManager.SceneComplete, null, null);
 
 		// Инициализация окружения

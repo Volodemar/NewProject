@@ -6,7 +6,6 @@ public class UIButtonNextLevel : BaseGameObject
 {
     public void NextLevel()
 	{
-		if(InitScene())
-			GM.OnStartNextLevel();
+		GM.OnStartNextLevel();
 	}
 }

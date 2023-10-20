@@ -38,11 +38,13 @@ public class GameManager : MonoBehaviour
 		{
 			SceneManager.LoadScene("Loading");
 		}
-
-		Canvas[] canvases = Resources.FindObjectsOfTypeAll<Canvas>();
-		foreach(Canvas canvas in canvases)
-			if(canvas.gameObject.name == "-----UI-----")
-				canvas.gameObject.SetActive(true);
+		else
+		{ 
+			Canvas[] canvases = Resources.FindObjectsOfTypeAll<Canvas>();
+			foreach(Canvas canvas in canvases)
+				if(canvas.gameObject.name == "-----UI-----")
+					canvas.gameObject.SetActive(true);
+		}
 	}
 
 	private void OnApplicationFocus(bool focus)

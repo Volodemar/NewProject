@@ -19,22 +19,19 @@ public class UILevelProgress : BaseGameObject
 
 	public void UpdateLevelProgress()
 	{
-		if(InitScene())
+		if(Level.currentLevel == 1)
 		{
-			if(Level.currentLevel == 1)
-			{
-				TextProgressA.SetText("");
-				TextProgressB.SetText("1");
-				TextProgressC.SetText("2");
-				TextProgressD.SetText("3");
-			}
-			else
-			{
-				TextProgressA.SetText( (Level.currentLevel-1).ToString() );
-				TextProgressB.SetText( (Level.currentLevel).ToString() );
-				TextProgressC.SetText( (Level.currentLevel+1).ToString() );
-				TextProgressD.SetText( (Level.currentLevel+2).ToString() );
-			}
+			TextProgressA.SetText("");
+			TextProgressB.SetText("1");
+			TextProgressC.SetText("2");
+			TextProgressD.SetText("3");
+		}
+		else
+		{
+			TextProgressA.SetText( (Level.currentLevel-1).ToString() );
+			TextProgressB.SetText( (Level.currentLevel).ToString() );
+			TextProgressC.SetText( (Level.currentLevel+1).ToString() );
+			TextProgressD.SetText( (Level.currentLevel+2).ToString() );
 		}
 	}
 }

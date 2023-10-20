@@ -43,10 +43,7 @@ public class PlayerController : BaseGameObject
     {
         if(isActive)
         { 
-            if(InitScene())
-            {             
-                MoveJoystikDirection();
-            }
+            MoveJoystikDirection();            
         }
     }
 
@@ -99,7 +96,7 @@ public class PlayerController : BaseGameObject
 
     public void ChangePlayerModel(bool value, int newIndex)
 	{
-		if (InitScene() && models.Count > 0)
+		if (models.Count > 0)
 		{
             for (int i = 0; i < models.Count; i++)
 			    if(models[i].activeSelf) currentModelIndex = i;                 

@@ -31,7 +31,7 @@ public class HighScoresData
 				HighScoresItem newItem = new HighScoresItem();
 				newItem.id     = i;
 				newItem.name   = rndName;
-				newItem.coins  = rndCoins;
+				newItem.score  = rndCoins;
 				items.Add(newItem);
 			}
 
@@ -42,8 +42,8 @@ public class HighScoresData
 	public void AddScore(int coins)
 	{
 		List<HighScoresItem> itemsSort = items.OrderBy(x => x.id).ToList();
-		List<HighScoresItem> itemsTop = itemsSort.Where(x => x.coins > coins).ToList();
-		List<HighScoresItem> itemsLow = itemsSort.Where(x => x.coins <= coins).ToList();
+		List<HighScoresItem> itemsTop = itemsSort.Where(x => x.score > coins).ToList();
+		List<HighScoresItem> itemsLow = itemsSort.Where(x => x.score <= coins).ToList();
 		List<HighScoresItem> newItemsLow = new List<HighScoresItem>();
 
 		HighScoresItem yourItem = new HighScoresItem();
@@ -53,14 +53,14 @@ public class HighScoresData
 
 		yourItem.id     = place;
 		yourItem.name   = "Your";
-		yourItem.coins  = coins;
+		yourItem.score  = coins;
 
 		foreach(HighScoresItem item in itemsLow)
 		{
 			HighScoresItem newItem = new HighScoresItem();
 			newItem.id     = yourItem.id+newItemsLow.Count+1;
 			newItem.name   = item.name;
-			newItem.coins  = item.coins;
+			newItem.score  = item.score;
 
 			if(newItem.id <= 10000)
 				newItemsLow.Add(newItem);
@@ -103,5 +103,5 @@ public class HighScoresItem
 {
     public int id;
     public string name;
-    public int coins;
+    public int score;
 }
