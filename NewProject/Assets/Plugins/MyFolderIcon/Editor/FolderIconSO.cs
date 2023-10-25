@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SimpleFolderIcon.Editor 
+namespace MyFolderIcon.Editor 
 {
     //[CreateAssetMenu()]
     public class FolderIconSO : ScriptableObject {

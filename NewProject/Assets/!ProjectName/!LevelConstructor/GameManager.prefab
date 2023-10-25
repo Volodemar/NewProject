@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5202092212897667307}
   - component: {fileID: 7469481773150906555}
   - component: {fileID: 3460432977253091697}
+  - component: {fileID: 6684021576025867780}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -73,3 +74,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1499545caf437d4bba1e5a2dd1e8220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6684021576025867780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202092212897667304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ebc41a57a824e4ea8c1f1aa483fa7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerSettings:
+    headerText: GameManager
+    headerColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+    textAlignmentOptions: 1
+    fontStyleOptions: 1
+    fontSize: 12
+    fontColor: {r: 1, g: 1, b: 1, a: 1}
+    dropShadow: 0
+    textOffset: {x: 18, y: 0}
+    buckgroundOffset: {x: 17, y: -1}
