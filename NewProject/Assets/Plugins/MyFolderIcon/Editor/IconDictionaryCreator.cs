@@ -6,7 +6,7 @@ namespace SimpleFolderIcon.Editor
 {
     public class IconDictionaryCreator : AssetPostprocessor
     {
-        private const string AssetsPath = "MyFolderIcon/Icons";
+        private const string AssetsPath = "Plugins/MyFolderIcon";
         internal static Dictionary<string, Texture> IconDictionary;
 
         private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
@@ -27,7 +27,7 @@ namespace SimpleFolderIcon.Editor
             foreach (string str in assets)
             {
 
-                if (ReplaceSeparatorChar(Path.GetDirectoryName(str)) == "Assets/" + AssetsPath)
+                if (ReplaceSeparatorChar(Path.GetDirectoryName(str)) == $"{AssetsPath}/Icons")
                 {
                     return true;
                 }
@@ -44,19 +44,18 @@ namespace SimpleFolderIcon.Editor
         {
             var dictionary = new Dictionary<string, Texture>();
 
-            var dir = new DirectoryInfo(Application.dataPath + "/" + AssetsPath);
+            var dir = new DirectoryInfo($"{Application.dataPath}/{AssetsPath}/Icons");
             FileInfo[] info = dir.GetFiles("*.png");
             foreach(FileInfo f in info)
             {
-                var texture = (Texture)AssetDatabase.LoadAssetAtPath($"Assets/MyFolderIcon/Icons/{f.Name}", typeof(Texture2D));
+                var texture = (Texture)AssetDatabase.LoadAssetAtPath($"Assets/{AssetsPath}/Icons/{f.Name}", typeof(Texture2D));
                 dictionary.Add(Path.GetFileNameWithoutExtension(f.Name),texture);
             }
 
             FileInfo[] infoSO = dir.GetFiles("*.asset");
             foreach (FileInfo f in infoSO) 
             {
-                var folderIconSO = (FolderIconSO)AssetDatabase.LoadAssetAtPath($"Assets/MyFolderIcon/Icons/{f.Name}", typeof(FolderIconSO));
-
+                var folderIconSO = (FolderIconSO)AssetDatabase.LoadAssetAtPath($"Assets/{AssetsPath}/Icons/{f.Name}", typeof(FolderIconSO));
                 if (folderIconSO != null) 
                 {
                     var texture = (Texture)folderIconSO.icon;
