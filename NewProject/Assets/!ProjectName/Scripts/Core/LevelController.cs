@@ -11,6 +11,8 @@ public class LevelController : BaseGameObject
 
     public int currentLevel;
 	public string priorityNextScene;
+	public AudioScriptableObject levelMusic;
+	public AudioScriptableObject levelAmbient;
 
 	private bool isActive = false;
 	private List<TMP_Text> poolText = new List<TMP_Text>();
@@ -32,6 +34,9 @@ public class LevelController : BaseGameObject
 	private IEnumerator OnLevelInit()
 	{
 		EventManager.OnActionSend(EventManager.SceneComplete, null, null);
+
+		Audio.PlayMusic(levelMusic);
+		Audio.PlayAmbient(levelAmbient);
 
 		// Инициализация окружения
 		GM.GameData.LevelData.Score(0, isSet:true);

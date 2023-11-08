@@ -145,6 +145,29 @@ public class BaseGameObject : MonoBehaviour
 				return _camera;
 			}
 		}
+
+		private AudioManager _am;
+		private bool _isAM_Init;
+		public AudioManager Audio 
+		{
+			get
+			{
+				if (!_isAM_Init)
+				{
+					if (!AudioManager.Instance)
+					{
+						_am = FindObjectOfType<AudioManager>();
+					}
+					else
+					{
+						_am = AudioManager.Instance;
+					}
+
+					_isAM_Init = true;
+				}
+				return _am;
+			}
+		}
 	#endregion Ленивая инициализация свойств
 
 	#region Подписка на обработку событий

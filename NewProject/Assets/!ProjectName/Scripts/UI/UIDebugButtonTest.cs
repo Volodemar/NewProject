@@ -13,4 +13,9 @@ public class UIDebugButtonTest : BaseGameObject
 	{
 		Level.OnLevelFailed();
 	}
+
+    public void OnPlaySound(AudioScriptableObject audio)
+	{
+		Audio.PlaySound(audio, Camera.transform, Vector3.zero);
+	}
 }
