@@ -32,12 +32,9 @@ public class AudioManager : MonoBehaviour
 	{
 		StartCoroutine(FadeOut(() => 
 		{ 
+			audioSourceMusic.clip = audio.clip;
 			audioSourceMusic.Play();
-			StartCoroutine(FadeIn(() => 
-			{ 
-				audioSourceMusic.clip = audio.clip;
-				audioSourceMusic.Play();
-			}));
+			StartCoroutine(FadeIn());
 		}));
 
 		//Увеличение громкости
@@ -71,10 +68,7 @@ public class AudioManager : MonoBehaviour
 		{ 
 			audioSourceAmbient.clip = audio.clip;
 			audioSourceAmbient.Play();
-			StartCoroutine(FadeIn(() => 
-			{ 
-				audioSourceAmbient.Play();
-			}));
+			StartCoroutine(FadeIn());
 		}));
 
 		//Увеличение громкости
@@ -102,6 +96,9 @@ public class AudioManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Проигрывает звук в определенном месте
+	/// </summary>
 	public void PlaySound(AudioScriptableObject audio, Transform parentObject, Vector3 offcet)
 	{
 		//Создание звука
@@ -111,12 +108,21 @@ public class AudioManager : MonoBehaviour
 
 		//Прикрепление звука
 		AutoMoveParent autoMove = sound.GetComponent<AutoMoveParent>();
-		autoMove.parent = parentObject;
-		autoMove.offcet = offcet;
+		autoMove.parent			= parentObject;
+		autoMove.offcet			= offcet;
+		autoMove.isParentCamera = false;
 
 		//Удаление звука
 		AutoDisable autoDisable = sound.gameObject.AddComponent<AutoDisable>();
 		autoDisable.ShowSeconds = audio.clip.length;	
-		autoDisable.isDestroy = true;		
+		autoDisable.isDestroy	= true;		
+	}
+
+	/// <summary>
+	/// Звук поигрывается на камере
+	/// </summary>
+	public void PlayOneSound(AudioScriptableObject audio)
+	{
+		audioSourceSound.PlayOneShot(audio.clip);		
 	}
 }

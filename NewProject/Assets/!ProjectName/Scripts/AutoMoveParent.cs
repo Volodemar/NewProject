@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -9,10 +7,14 @@ public class AutoMoveParent : MonoBehaviour
 {
 	public Transform parent;
 	public Vector3 offcet = Vector3.zero;
+	public bool isParentCamera = false;
 
 	private void Update()
 	{
-		if(parent != null)
+		if(isParentCamera)
+			this.transform.position = Camera.main.transform.position;
+
+		else if(parent != null)
 			this.transform.position = parent.position + offcet;
 	}
 }
