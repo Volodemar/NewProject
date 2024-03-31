@@ -6,7 +6,7 @@ namespace MyFolderIcon.Editor
 {
     public class IconDictionaryCreator : AssetPostprocessor
     {
-        private const string AssetsPath = "Plugins/MyFolderIcon";
+        private const string AssetsPath = "Plugins/MyTools/MyFolderIcon";
         internal static Dictionary<string, Texture> IconDictionary;
 
         private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
