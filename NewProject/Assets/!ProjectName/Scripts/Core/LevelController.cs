@@ -35,6 +35,7 @@ public class LevelController : BaseGameObject
 	{
 		EventManager.OnActionSend(EventManager.SceneComplete, null, null);
 
+		Audio.SetParentAudioListener(Camera.main.transform);
 		Audio.PlayMusic(levelMusic);
 		Audio.PlayAmbient(levelAmbient);
 

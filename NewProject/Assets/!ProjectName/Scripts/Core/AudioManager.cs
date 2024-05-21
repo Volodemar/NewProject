@@ -141,4 +141,12 @@ public class AudioManager : MonoBehaviour
 		audioMixer.SetFloat("AmbientVolume", Mathf.Log10(clampVolume) * 20);	
 		audioMixer.SetFloat("SoundVolume", Mathf.Log10(clampVolume) * 20);	
     }
+
+	public void SetParentAudioListener(Transform parent)
+	{
+		if (parent == null)
+			audioListener.transform.parent = this.transform;
+		else
+			audioListener.transform.parent = parent;
+	}
 }

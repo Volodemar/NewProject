@@ -79,6 +79,9 @@ public class GameManager : MonoBehaviour
 		//AppAnalytics.TrackLevelRestart(LevelController.Instance.currentLevel);
 
 		StopAllCoroutines();
+
+		AudioManager.Instance.SetParentAudioListener(null);
+
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
@@ -88,6 +91,9 @@ public class GameManager : MonoBehaviour
 		string priorityNextScene = GameData.LevelData.PriorityNextScene;
 
 		StopAllCoroutines();
+
+		AudioManager.Instance.SetParentAudioListener(null);
+
 		if(priorityNextScene == "")
 		{ 
 			if(currentLevel == 0 || currentLevel >= GameData.DataBase.LoadingData.MaxLevels)
