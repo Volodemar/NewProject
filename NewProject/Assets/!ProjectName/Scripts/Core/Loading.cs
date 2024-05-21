@@ -5,15 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Loading : MonoBehaviour
 {
-	public GameObject DontDestroyGameData;
-	public GameObject DontDestroyEventManager;
+	public GameObject GameData;
+	public GameObject EventManager;
 
 	public LoadingScriptableObject LoadingData;
 
 	private void Start()
 	{
 		//Загрузка данных игры
-		GameData GD = DontDestroyGameData.GetComponent<DontDestroyGameData>().GameData;
+		GameData GD = GameData.GetComponent<DontDestroyGameData>().GameData;
 
 		Lexic.NameGenerator generator = this.GetComponent<Lexic.NameGenerator>();
 
@@ -24,12 +24,9 @@ public class Loading : MonoBehaviour
 		else
 			GD.Load(generator);
 
-		//Запрет уничтожения объекта с данными
-		DontDestroyOnLoad(DontDestroyGameData);
-		DontDestroyOnLoad(DontDestroyEventManager);
-
-		//Добавление неудаляемого объекта в ссылки
-		ObjectExtension.DontDestroyOnLoad(DontDestroyGameData); 
+		//Запрет удаления и ссылка на объект
+		ObjectExtension.DontDestroyOnLoad(GameData); 
+		ObjectExtension.DontDestroyOnLoad(EventManager);
 
 		int currentLevel	= GD.PlayerData.CurrentLevel;
 		int lastLevel		= GD.PlayerData.LastLevel;

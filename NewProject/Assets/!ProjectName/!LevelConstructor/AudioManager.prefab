@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3855581692213417833
+--- !u!1 &3197122809260506858
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,21 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3855581692213417834}
+  - component: {fileID: 6698887367820152542}
+  - component: {fileID: 4825060858808404947}
   m_Layer: 0
-  m_Name: SoundsParent
+  m_Name: AudioListener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3855581692213417834
+--- !u!4 &6698887367820152542
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3855581692213417833}
+  m_GameObject: {fileID: 3197122809260506858}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,6 +32,14 @@ Transform:
   m_Father: {fileID: 3855581693514618231}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &4825060858808404947
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3197122809260506858}
+  m_Enabled: 1
 --- !u!1 &3855581692439022025
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +482,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3855581693514618231}
   - component: {fileID: 3855581693514618230}
-  - component: {fileID: 3855581693514618216}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -496,7 +504,7 @@ Transform:
   - {fileID: 3855581692439022026}
   - {fileID: 3855581692517513913}
   - {fileID: 3855581692762289981}
-  - {fileID: 3855581692213417834}
+  - {fileID: 6698887367820152542}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -512,29 +520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875e559a0cffd9b4ead7167837fc422a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioListener: {fileID: 4825060858808404947}
+  audioMixer: {fileID: 24100000, guid: 8807fad145cea78479ff6da9700d7181, type: 2}
   audioSourceMusic: {fileID: 3855581692439022027}
   audioSourceAmbient: {fileID: 3855581692517513914}
   audioSourceSound: {fileID: 3855581692762289983}
-  soundsParent: {fileID: 3855581692213417834}
---- !u!114 &3855581693514618216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3855581693514618229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ebc41a57a824e4ea8c1f1aa483fa7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  headerSettings:
-    headerText: AudioManager
-    headerColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
-    textAlignmentOptions: 1
-    fontStyleOptions: 1
-    fontSize: 12
-    fontColor: {r: 0.882353, g: 0.8352942, b: 0.6862745, a: 1}
-    dropShadow: 0
-    textOffset: {x: 18, y: 0}
-    buckgroundOffset: {x: 17, y: -1}

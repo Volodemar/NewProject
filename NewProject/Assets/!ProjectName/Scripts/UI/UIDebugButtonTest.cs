@@ -16,7 +16,6 @@ public class UIDebugButtonTest : BaseGameObject
 
     public void OnPlaySound(AudioScriptableObject audio)
 	{
-		//Audio.PlaySound(audio, Camera.transform, Vector3.zero);
-		Audio.PlayOneSound(audio);
+		Audio.PlaySound(audio);
 	}
 }
