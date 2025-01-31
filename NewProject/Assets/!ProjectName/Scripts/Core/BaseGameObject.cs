@@ -198,5 +198,17 @@ public class BaseGameObject : MonoBehaviour
 			//if(ID == EventManager.LevelInit)
 				//Debug.Log("Инициализация сцены")
 		}
+
+		/* Example
+		public override void GetAction(string ID, object obj, object obj2)
+		{
+			switch (ID)
+			{
+				case EventManager.ChangedPlayerEnergy:
+					ChangeEnergyBar();
+					break;
+			}
+		}
+		*/
 	#endregion
 }
