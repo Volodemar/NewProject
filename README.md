@@ -109,10 +109,10 @@ Level1 - готовая сцена игры (первый уровень)
 
 Имеет структуру:
 
-PlayerData - данные игрока, как правило сохраняются между запусками игры.
-LevelData - данные уровня, как правило будут стерты при запуске или перезапуске сцены уровня.
-HighScoresData - фишка для рейтинга, вынесено в отдельный блок данных.
-DataBase - база данных игры (содержит ссылки на ресурсы игры с помощью ScriptableObject), о ней расскажу позже.
+- PlayerData - данные игрока, как правило сохраняются между запусками игры.
+- LevelData - данные уровня, как правило будут стерты при запуске или перезапуске сцены уровня.
+- HighScoresData - фишка для рейтинга, вынесено в отдельный блок данных.
+- DataBase - база данных игры (содержит ссылки на ресурсы игры с помощью ScriptableObject), о ней расскажу позже.
 
 ![image-20250131080115447](README.assets/image-20250131080115447.png)
 
@@ -122,7 +122,7 @@ DataBase - база данных игры (содержит ссылки на р
 
 Пример из моей игры про изучения слов **BrainTranslator**:
 
-<img src="README.assets/image-20250131081101211.png" alt="image-20250131081101211" style="zoom:50%;" /><img src="README.assets/image-20250131081216856.png" alt="image-20250131081216856" style="zoom:50%;" />
+![image-20250131100257942](README.assets/image-20250131100257942.png)
 
 ### DataBase
 
@@ -145,7 +145,7 @@ DataBase - база данных игры (содержит ссылки на р
 
 Менеджер висит на объекте GameManager. В данном проекте это чистой воды шаблон для ускорения создания внутренних покупок. Проект Puppy к сожалению не был выпущен в GooglePlay, но в него были сразу встроены внутриигровые покупки. 
 
-[Проект Puppy (Необходим VPN)]: https://itch.io/queue/c/3687541/vladimir-shangeev-collection?game_id=2318329
+https://itch.io/queue/c/3687541/vladimir-shangeev-collection?game_id=2318329 
 
 ### AdsManager
 
@@ -214,20 +214,22 @@ MyShortcut - тулза для быстрого доступа к объекта
 На этом HyperCash Core, с модификациями выпущено множество проектов компании DigitalPill. А также много проектов не выпущены не пройдя CPI.
 
 Проекты где всегда разные механики и короткий срок разработки (команда трех):
-https://play.google.com/store/apps/details?id=games.dpill.sniperjohn
-https://play.google.com/store/apps/details?id=games.dpill.sword
-https://play.google.com/store/apps/details?id=games.dpill.mechrun
-https://play.google.com/store/apps/details?id=games.dpill.housecrusher
-https://play.google.com/store/apps/details?id=games.dpill.doctorhandsrun
-https://play.google.com/store/apps/details?id=games.dpill.gunheadslide
-https://play.google.com/store/apps/details?id=games.dpill.moneyjump
-https://play.google.com/store/apps/details?id=games.dpill.mergeswordcraft
-https://play.google.com/store/apps/details?id=games.dpill.moneypush
-https://play.google.com/store/apps/details?id=games.dpill.dzenorigami
-https://itch.io/queue/c/3687541/vladimir-shangeev-collection?game_id=2318329
-https://play.google.com/store/apps/details?id=games.dpill.jellysort
+
+- https://play.google.com/store/apps/details?id=games.dpill.sniperjohn
+- https://play.google.com/store/apps/details?id=games.dpill.sword
+- https://play.google.com/store/apps/details?id=games.dpill.mechrun
+- https://play.google.com/store/apps/details?id=games.dpill.housecrusher
+- https://play.google.com/store/apps/details?id=games.dpill.doctorhandsrun
+- https://play.google.com/store/apps/details?id=games.dpill.gunheadslide
+- https://play.google.com/store/apps/details?id=games.dpill.moneyjump
+- https://play.google.com/store/apps/details?id=games.dpill.mergeswordcraft
+- https://play.google.com/store/apps/details?id=games.dpill.moneypush
+- https://play.google.com/store/apps/details?id=games.dpill.dzenorigami
+- https://itch.io/queue/c/3687541/vladimir-shangeev-collection?game_id=2318329
+- https://play.google.com/store/apps/details?id=games.dpill.jellysort
 
 Коллекция проектов, где применяются мои наработки:
+
 https://itch.io/c/3687541/vladimir-shangeev-collection
 
 *Вроде про все фишки Core рассказал, если понравился шаблон или что-то забыл описать, можете мне сообщить в телеграмм:* @Deliankur
